@@ -57,7 +57,7 @@ rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
 filtered_rules = rules[(rules['antecedent_len'] >= sku_num) & (rules['consequent_len'] >= sku_num)]
 sorted_rules = filtered_rules.sort_values(by=["support", "confidence"], ascending=[False, False])
 
-num_itemsets = st.slider("Number of Item Sets", min = 5, max = 100, step = 5)
+num_itemsets = st.slider("Number of Item Sets", 5, 100, 5)
 
 top_rules = sorted_rules.head(num_itemsets)
 
