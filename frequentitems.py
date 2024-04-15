@@ -72,14 +72,15 @@ for index, row in top_rules.iterrows():
     
     # Map SKU numbers to names for consequents
     consequent_names = [sku_to_name[sku] for sku in row['consequents']]
-    consequents = ", ".join([f"**{name}**" for name in consequent_names])
+    consequents = " & ".join([f"**{name}**" for name in consequent_names])
     
     confidence = row['confidence'] * 100  # Convert confidence to percentage
     support = row['support']
 
-    st.write(f"{antecedents} & {consequents}\n")
-    st.write(f"There is a {confidence:.2f}% probability of finding {consequents} in a transaction given that {antecedents} is present.\n")
+    st.markdown(f"**{antecedents}** & **{consequents}**\n")
+    st.write(f"There is a {confidence:.2f}% probability of finding **{consequents}** in a transaction given that **{antecedents}** is present.\n")
     st.write(f"This item association has occurred in approximately {support:.6f} of all transactions.\n")
+
 
 
 
