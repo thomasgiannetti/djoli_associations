@@ -54,7 +54,7 @@ rules['antecedent_len'] = rules['antecedents'].apply(lambda x: len(x))
 rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
 
 # Filter the rules based on the length of antecedents and consequents
-filtered_rules = rules[(rules['antecedent_len'] >= sku_num) & (rules['consequent_len'] >= sku_num)]
+filtered_rules = rules[(rules['antecedent_len'] <= sku_num) & (rules['consequent_len'] <= sku_num)]
 sorted_rules = filtered_rules.sort_values(by=["support", "confidence"], ascending=[False, False])
 
 num_itemsets = st.slider("Number of Item Sets", 5, 100, 5)
