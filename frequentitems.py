@@ -44,7 +44,7 @@ metric = st.selectbox(
     'Select a metric.',
     ('support', 'confidence', 'lift', 'conviction', 'zhangs_metric'))
 
-rules = association_rules(frequent_itemsets, metric={metric}, min_threshold=0.05)
+rules = association_rules(frequent_itemsets, metric=metric, min_threshold=0.05)
 
 sku_num = st.selectbox(
     'Select the maximum number of SKUs by association.',
@@ -54,7 +54,7 @@ rules['antecedent_len'] = rules['antecedents'].apply(lambda x: len(x))
 rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
 
 # Filter the rules based on the length of antecedents and consequents
-filtered_rules = rules[(rules['antecedent_len'] >= 1) & (rules['consequent_len'] >= {sku_num})]
+filtered_rules = rules[(rules['antecedent_len'] >= sku_num) & (rules['consequent_len'] >= sku_num)]
 sorted_rules = filtered_rules.sort_values(by=["support", "confidence"], ascending=[False, False])
 
 top_rules = sorted_rules.head(50)
