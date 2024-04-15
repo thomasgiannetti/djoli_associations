@@ -57,7 +57,10 @@ rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
 filtered_rules = rules[(rules['antecedent_len'] >= sku_num) & (rules['consequent_len'] >= sku_num)]
 sorted_rules = filtered_rules.sort_values(by=["support", "confidence"], ascending=[False, False])
 
-top_rules = sorted_rules.head(50)
+num_itemsets = st.selectbox(
+    'Select the number of associations.',
+    (10, 20, 30, 40, 50, 60, 70, 80, 90, 100))
+top_rules = sorted_rules.head(num_itemsets)
 
 # Create a dictionary to map SKU numbers to names
 sku_to_name = dict(zip(standardproducts_df['sku'], standardproducts_df['name']))
