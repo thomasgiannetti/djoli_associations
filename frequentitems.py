@@ -68,7 +68,7 @@ sku_to_name = dict(zip(standardproducts_df['sku'], standardproducts_df['name']))
 for index, row in top_rules.iterrows():
     # Map SKU numbers to names for antecedents
     antecedent_names = [sku_to_name[sku] for sku in row['antecedents']]
-    antecedents = " & ".join([f"*{name}*" for name in antecedent_names])
+    antecedents = " & ".join([f"{name}" for name in antecedent_names])
     
     # Map SKU numbers to names for consequents
     consequent_names = [sku_to_name[sku] for sku in row['consequents']]
