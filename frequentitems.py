@@ -78,7 +78,7 @@ for index, row in top_rules.iterrows():
 
     st.subheader(f"{antecedents} & {consequents}\n")
     st.write(f"There is a {confidence:.2f}% probability of finding {consequents} in a transaction given that {antecedents} is present.\n")
-    st.write(f"This item association has occurred in approximately {support:.2f} of all transactions.\n")
+    st.write(f"This item association has occurred in approximately {support:.2f}% of all transactions.\n")
     st.markdown(f"\n")
     st.divider()
 
