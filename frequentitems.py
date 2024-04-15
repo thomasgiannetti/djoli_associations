@@ -74,5 +74,6 @@ for index, row in top_rules.iterrows():
     confidence = row['confidence'] * 100  # Convert confidence to percentage
     support = row['support']
 
-    st.write(f"{antecedents} - {consequents} -> Confidence score: {confidence:.2f}% / Support: {support:.6f}")
+    st.write(f"{antecedents} - {consequents} -> Confidence score: {confidence:.2f}% / Support: {support:.6f}\n")
+
 
