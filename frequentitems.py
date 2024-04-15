@@ -9,6 +9,7 @@ from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 import re
 import pulp
+import streamlit as st
 
 
 mydb = connection.connect(host="db-djoli-mysql-do-user-14041340-0.b.db.ondigitalocean.com", 
