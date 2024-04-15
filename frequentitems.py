@@ -57,9 +57,8 @@ rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
 filtered_rules = rules[(rules['antecedent_len'] >= sku_num) & (rules['consequent_len'] >= sku_num)]
 sorted_rules = filtered_rules.sort_values(by=["support", "confidence"], ascending=[False, False])
 
-num_itemsets = st.selectbox(
-    'Select the number of associations.',
-    (10, 20, 30, 40, 50, 60, 70, 80, 90, 100))
+num_itemsets = st.slider("Number of Item Sets", min = 5, 100, step = 5)
+
 top_rules = sorted_rules.head(num_itemsets)
 
 # Create a dictionary to map SKU numbers to names
@@ -81,6 +80,7 @@ for index, row in top_rules.iterrows():
     st.write(f"There is a {confidence:.2f}% probability of finding {consequents} in a transaction given that {antecedents} is present.\n")
     st.write(f"This item association has occurred in approximately {support:.2f} of all transactions.\n")
     st.markdown(f"\n")
+    st.divier()
 
 
 
