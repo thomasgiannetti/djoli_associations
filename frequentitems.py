@@ -46,9 +46,7 @@ metric = st.selectbox(
 
 rules = association_rules(frequent_itemsets, metric=metric, min_threshold=0.05)
 
-sku_num = st.selectbox(
-    'Select the maximum number of SKUs by association.',
-    (1,2,3,4,5))
+sku_num = st.slider("Number of SKUs by Item Set", 1, 5, 1)
 
 rules['antecedent_len'] = rules['antecedents'].apply(lambda x: len(x))
 rules['consequent_len'] = rules['consequents'].apply(lambda x: len(x))
@@ -80,7 +78,7 @@ for index, row in top_rules.iterrows():
     st.write(f"There is a {confidence:.2f}% probability of finding {consequents} in a transaction given that {antecedents} is present.\n")
     st.write(f"This item association has occurred in approximately {support:.2f} of all transactions.\n")
     st.markdown(f"\n")
-    st.divier()
+    st.divider()
 
 
 
