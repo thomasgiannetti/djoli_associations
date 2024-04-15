@@ -77,9 +77,11 @@ for index, row in top_rules.iterrows():
     confidence = row['confidence'] * 100  # Convert confidence to percentage
     support = row['support']
 
-    st.markdown(f"{antecedents} & {consequents}\n")
+    st.markdown(f"**{antecedents} & {consequents}**\n")
     st.write(f"There is a {confidence:.2f}% probability of finding {consequents} in a transaction given that {antecedents} is present.\n")
     st.write(f"This item association has occurred in approximately {support:.6f} of all transactions.\n")
+    st.markdown(f"\n")
+
 
 
 
