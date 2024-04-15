@@ -40,6 +40,8 @@ basket.index.rename("orderID")
 
 frequent_itemsets = apriori(basket, min_support=0.005, use_colnames=True)
 
+st.title('Djoli - Frequent Item Set Associations')
+
 metric = st.selectbox(
     'Select a metric.',
     ('support', 'confidence', 'lift', 'conviction', 'zhangs_metric'))
